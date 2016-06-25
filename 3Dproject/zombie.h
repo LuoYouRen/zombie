@@ -1,9 +1,12 @@
 #ifndef ZOMBIE_H
 #define ZOMBIE_H
 #include "zombie.h"
+#include <math.h>
+#include <GL/glew.h>
+#include <GL/glut.h>
 /*---- the axes of billboard ----*/
-extern  a[3], b[3];
-extern    mtx[16];     /* the modelview matrix */
+float  a[3], b[3];
+float    mtx[16];     /* the modelview matrix */
 void compute_ab_axes(void)
 {
 	float  w0, w2;
@@ -46,10 +49,10 @@ void draw_billboard(float x, float z, float w, float h)
 }
 void testBillboard(){
 	/*-------Draw the billboard ----*/
-	glMaterialfv(GL_FRONT, GL_DIFFUSE, mat_diffuse);
+	//glMaterialfv(GL_FRONT, GL_DIFFUSE, mat_diffuse);
 
 	glTexEnvf(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_MODULATE);
-	glBindTexture(GL_TEXTURE_2D, textName[0]);
+	//glBindTexture(GL_TEXTURE_2D, textName);
 
 	draw_billboard(5.0*4.0, 3.0*4.0, 5.0, 8.0);
 	draw_billboard(6.0*4.0, 5.0*4.0, 5.0, 8.0);
