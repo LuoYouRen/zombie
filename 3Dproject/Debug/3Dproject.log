@@ -1,0 +1,66 @@
+﻿已經開始建置於 2016/6/26 上午 02:34:02。
+     1>節點 2 (Build 目標) 上的專案 "C:\Users\Administrator\Desktop\3D\專案\3Dproject\3Dproject\3Dproject.vcxproj"。
+     1>ClCompile:
+         D:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Source.cpp
+         Source.cpp
+     1>c:\users\administrator\desktop\3d\專案\3dproject\3dproject\zombie.h(5): error C4430: 遺漏類型規範 - 假設為 int。注意: C++ 不支援 default-int
+     1>c:\users\administrator\desktop\3d\專案\3dproject\3dproject\zombie.h(6): error C4430: 遺漏類型規範 - 假設為 int。注意: C++ 不支援 default-int
+     1>c:\users\administrator\desktop\3d\專案\3dproject\3dproject\zombie.h(13): warning C4244: '=' : 將 'int' 轉換為 'float'，由於類型不同，可能導致資料遺失
+     1>c:\users\administrator\desktop\3d\專案\3dproject\3dproject\zombie.h(15): error C3861: 'sqrt': 找不到識別項
+     1>c:\users\administrator\desktop\3d\專案\3dproject\3dproject\zombie.h(17): warning C4244: '=' : 將 'double' 轉換為 'int'，由於類型不同，可能導致資料遺失
+     1>c:\users\administrator\desktop\3d\專案\3dproject\3dproject\zombie.h(18): warning C4244: '=' : 將 'double' 轉換為 'int'，由於類型不同，可能導致資料遺失
+     1>c:\users\administrator\desktop\3d\專案\3dproject\3dproject\zombie.h(25): error C2065: 'GL_BLEND' : 未宣告的識別項
+     1>c:\users\administrator\desktop\3d\專案\3dproject\3dproject\zombie.h(25): error C3861: 'glEnable': 找不到識別項
+     1>c:\users\administrator\desktop\3d\專案\3dproject\3dproject\zombie.h(26): error C2065: 'GL_SRC_ALPHA' : 未宣告的識別項
+     1>c:\users\administrator\desktop\3d\專案\3dproject\3dproject\zombie.h(26): error C2065: 'GL_ONE_MINUS_SRC_ALPHA' : 未宣告的識別項
+     1>c:\users\administrator\desktop\3d\專案\3dproject\3dproject\zombie.h(26): error C3861: 'glBlendFunc': 找不到識別項
+     1>c:\users\administrator\desktop\3d\專案\3dproject\3dproject\zombie.h(28): error C2065: 'GL_ALPHA_TEST' : 未宣告的識別項
+     1>c:\users\administrator\desktop\3d\專案\3dproject\3dproject\zombie.h(28): error C3861: 'glEnable': 找不到識別項
+     1>c:\users\administrator\desktop\3d\專案\3dproject\3dproject\zombie.h(29): error C2065: 'GL_GREATER' : 未宣告的識別項
+     1>c:\users\administrator\desktop\3d\專案\3dproject\3dproject\zombie.h(29): error C3861: 'glAlphaFunc': 找不到識別項
+     1>c:\users\administrator\desktop\3d\專案\3dproject\3dproject\zombie.h(30): error C2065: 'GL_TEXTURE_ENV' : 未宣告的識別項
+     1>c:\users\administrator\desktop\3d\專案\3dproject\3dproject\zombie.h(30): error C2065: 'GL_TEXTURE_ENV_MODE' : 未宣告的識別項
+     1>c:\users\administrator\desktop\3d\專案\3dproject\3dproject\zombie.h(30): error C2065: 'GL_MODULATE' : 未宣告的識別項
+     1>c:\users\administrator\desktop\3d\專案\3dproject\3dproject\zombie.h(30): error C3861: 'glTexEnvf': 找不到識別項
+     1>c:\users\administrator\desktop\3d\專案\3dproject\3dproject\zombie.h(38): error C2065: 'GL_QUADS' : 未宣告的識別項
+     1>c:\users\administrator\desktop\3d\專案\3dproject\3dproject\zombie.h(38): error C3861: 'glBegin': 找不到識別項
+     1>c:\users\administrator\desktop\3d\專案\3dproject\3dproject\zombie.h(39): error C3861: 'glTexCoord2f': 找不到識別項
+     1>c:\users\administrator\desktop\3d\專案\3dproject\3dproject\zombie.h(39): error C3861: 'glVertex3fv': 找不到識別項
+     1>c:\users\administrator\desktop\3d\專案\3dproject\3dproject\zombie.h(40): error C3861: 'glTexCoord2f': 找不到識別項
+     1>c:\users\administrator\desktop\3d\專案\3dproject\3dproject\zombie.h(40): error C3861: 'glVertex3fv': 找不到識別項
+     1>c:\users\administrator\desktop\3d\專案\3dproject\3dproject\zombie.h(41): error C3861: 'glTexCoord2f': 找不到識別項
+     1>c:\users\administrator\desktop\3d\專案\3dproject\3dproject\zombie.h(41): error C3861: 'glVertex3fv': 找不到識別項
+     1>c:\users\administrator\desktop\3d\專案\3dproject\3dproject\zombie.h(42): error C3861: 'glTexCoord2f': 找不到識別項
+     1>c:\users\administrator\desktop\3d\專案\3dproject\3dproject\zombie.h(42): error C3861: 'glVertex3fv': 找不到識別項
+     1>c:\users\administrator\desktop\3d\專案\3dproject\3dproject\zombie.h(43): error C3861: 'glEnd': 找不到識別項
+     1>c:\users\administrator\desktop\3d\專案\3dproject\3dproject\zombie.h(44): error C2065: 'GL_ALPHA_TEST' : 未宣告的識別項
+     1>c:\users\administrator\desktop\3d\專案\3dproject\3dproject\zombie.h(44): error C3861: 'glDisable': 找不到識別項
+     1>c:\users\administrator\desktop\3d\專案\3dproject\3dproject\zombie.h(45): error C2065: 'GL_BLEND' : 未宣告的識別項
+     1>c:\users\administrator\desktop\3d\專案\3dproject\3dproject\zombie.h(45): error C3861: 'glDisable': 找不到識別項
+     1>c:\users\administrator\desktop\3d\專案\3dproject\3dproject\zombie.h(49): error C2065: 'GL_FRONT' : 未宣告的識別項
+     1>c:\users\administrator\desktop\3d\專案\3dproject\3dproject\zombie.h(49): error C2065: 'GL_DIFFUSE' : 未宣告的識別項
+     1>c:\users\administrator\desktop\3d\專案\3dproject\3dproject\zombie.h(49): error C2065: 'mat_diffuse' : 未宣告的識別項
+     1>c:\users\administrator\desktop\3d\專案\3dproject\3dproject\zombie.h(49): error C3861: 'glMaterialfv': 找不到識別項
+     1>c:\users\administrator\desktop\3d\專案\3dproject\3dproject\zombie.h(51): error C2065: 'GL_TEXTURE_ENV' : 未宣告的識別項
+     1>c:\users\administrator\desktop\3d\專案\3dproject\3dproject\zombie.h(51): error C2065: 'GL_TEXTURE_ENV_MODE' : 未宣告的識別項
+     1>c:\users\administrator\desktop\3d\專案\3dproject\3dproject\zombie.h(51): error C2065: 'GL_MODULATE' : 未宣告的識別項
+     1>c:\users\administrator\desktop\3d\專案\3dproject\3dproject\zombie.h(51): error C3861: 'glTexEnvf': 找不到識別項
+     1>c:\users\administrator\desktop\3d\專案\3dproject\3dproject\zombie.h(52): error C2065: 'GL_TEXTURE_2D' : 未宣告的識別項
+     1>c:\users\administrator\desktop\3d\專案\3dproject\3dproject\zombie.h(52): error C2065: 'textName' : 未宣告的識別項
+     1>c:\users\administrator\desktop\3d\專案\3dproject\3dproject\zombie.h(52): error C3861: 'glBindTexture': 找不到識別項
+     1>c:\users\administrator\desktop\3d\專案\3dproject\3dproject\zombie.h(60): error C2065: 'GL_TEXTURE_2D' : 未宣告的識別項
+     1>c:\users\administrator\desktop\3d\專案\3dproject\3dproject\zombie.h(60): error C3861: 'glDisable': 找不到識別項
+     1>c:\users\administrator\desktop\3d\專案\3dproject\3dproject\source.cpp(30): warning C4305: '正在初始化' : 從 'double' 轉換為 'float'，是由較大的類型轉換為較小的類型，可能導致資料遺失
+     1>c:\users\administrator\desktop\3d\專案\3dproject\3dproject\source.cpp(31): warning C4305: '正在初始化' : 從 'double' 轉換為 'float'，是由較大的類型轉換為較小的類型，可能導致資料遺失
+     1>c:\users\administrator\desktop\3d\專案\3dproject\3dproject\source.cpp(32): warning C4305: '正在初始化' : 從 'double' 轉換為 'float'，是由較大的類型轉換為較小的類型，可能導致資料遺失
+     1>c:\users\administrator\desktop\3d\專案\3dproject\3dproject\source.cpp(370): error C3861: 'ReturnProgramID': 找不到識別項
+     1>c:\users\administrator\desktop\3d\專案\3dproject\3dproject\source.cpp(376): warning C4305: '引數' : 從 'double' 轉換為 'GLfloat'，是由較大的類型轉換為較小的類型，可能導致資料遺失
+     1>c:\users\administrator\desktop\3d\專案\3dproject\3dproject\source.cpp(438): warning C4244: '=' : 將 'float' 轉換為 'int'，由於類型不同，可能導致資料遺失
+     1>c:\users\administrator\desktop\3d\專案\3dproject\3dproject\source.cpp(439): warning C4244: '=' : 將 'float' 轉換為 'int'，由於類型不同，可能導致資料遺失
+     1>c:\users\administrator\desktop\3d\專案\3dproject\3dproject\source.cpp(499): warning C4244: '+=' : 將 'time_t' 轉換為 'int'，由於類型不同，可能導致資料遺失
+     1>c:\users\administrator\desktop\3d\專案\3dproject\3dproject\source.cpp(500): warning C4244: '+=' : 將 'time_t' 轉換為 'int'，由於類型不同，可能導致資料遺失
+     1>專案 "C:\Users\Administrator\Desktop\3D\專案\3Dproject\3Dproject\3Dproject.vcxproj" (Build 目標) 建置完成 -- 失敗。
+
+建置失敗。
+
+經過時間 00:00:02.92
