@@ -21,6 +21,10 @@ void compute_ab_axes(void)
 	a[0] = w2 / len; a[1] = 0.0; a[2] = -w0 / len;
 	//float  a[3], b[3];
 }
+//x是左右 + 右 -左
+//y是前後 +靠近鏡頭 -遠離鏡頭
+//w是bb寬度
+//h是bb高度
 void draw_billboard(float x, float z, float w, float h)
 {
 	float  v0[3], v1[3], v2[3], v3[3];

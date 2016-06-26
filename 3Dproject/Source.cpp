@@ -120,6 +120,7 @@ unsigned char *LoadBitmapFile(char *fileName, BITMAPINFO *bitmapInfo)
 
 void texture(void)
 {
+	/*
 	int width;
 	int height;
 
@@ -215,6 +216,7 @@ void texture(void)
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
 	glTexImage2D(GL_TEXTURE_2D, 0, 3, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, image7);
+	*/
 }
 
 void Draw_UnitCube(int index)
@@ -363,12 +365,10 @@ void Display()
 
 	gluLookAt(20.0, 20.0, 30.0, 6.0, 10.0, 2.0, 0.0, 1.0, 0.0);
 
-	glUseProgram(0);//切換到default opengl graphics pipeline
+
 	DrawAxis();
 
-	if (shader_effect == MY_SHADER)
-		glUseProgram(ReturnProgramID(0));//切換到 自己的shading language
-
+	
 	glEnable(GL_LIGHTING);//open lighting
 	glEnable(GL_LIGHT0);//open light0
 
@@ -501,4 +501,25 @@ void Timer(int c)
 	}
 	glutPostRedisplay();
 	glutTimerFunc(50, Timer, 0);
+}
+
+int main(int argc, char** argv)
+{
+	//test cube.obj
+	///*
+	glutInit(&argc, argv);
+	glutInitDisplayMode(GLUT_RGB | GLUT_DEPTH | GLUT_DOUBLE);
+	glutInitWindowSize(800, 800);
+	glutCreateWindow("GLSL Tutorial");//all opengl api 在此後才有作用
+	glutDisplayFunc(Display);
+	glutKeyboardFunc(KeyboardDown);
+	glutKeyboardUpFunc(KeyboardUp);
+	glutMotionFunc(Motion);
+	glutMouseFunc(Mouse);
+	glutTimerFunc(50, Timer, 0);
+	/**/
+	//glewInit();
+	Init();
+	glutMainLoop();
+	//*/
 }
