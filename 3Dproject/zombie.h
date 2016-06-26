@@ -4,11 +4,14 @@
 #include <math.h>
 #include <GL/glew.h>
 #include <GL/glut.h>
+#include<iostream>
+#include<string>
 /*---- the axes of billboard ----*/
 float  a[3], b[3];
 float    mtx[16];     /* the modelview matrix */
 class Zombie{
-	public float position[3];
+	public: 
+		float position[3];
 
 };
 

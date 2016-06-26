@@ -1,9 +1,9 @@
-﻿已經開始建置於 2016/6/26 下午 05:13:47。
+﻿已經開始建置於 2016/6/26 下午 06:41:37。
      1>節點 2 (Build 目標) 上的專案 "C:\Users\Administrator\Desktop\3D\專案\3Dproject\3Dproject\3Dproject.vcxproj"。
      1>ClCompile:
          D:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Source.cpp
          Source.cpp
-     1>c:\users\administrator\desktop\3d\專案\3dproject\3dproject\zombie.h(21): warning C4244: '=' : 將 'double' 轉換為 'float'，由於類型不同，可能導致資料遺失
+     1>c:\users\administrator\desktop\3d\專案\3dproject\3dproject\zombie.h(29): warning C4244: '=' : 將 'double' 轉換為 'float'，由於類型不同，可能導致資料遺失
      1>c:\users\administrator\desktop\3d\專案\3dproject\3dproject\source.cpp(30): warning C4305: '正在初始化' : 從 'double' 轉換為 'float'，是由較大的類型轉換為較小的類型，可能導致資料遺失
      1>c:\users\administrator\desktop\3d\專案\3dproject\3dproject\source.cpp(31): warning C4305: '正在初始化' : 從 'double' 轉換為 'float'，是由較大的類型轉換為較小的類型，可能導致資料遺失
      1>c:\users\administrator\desktop\3d\專案\3dproject\3dproject\source.cpp(32): warning C4305: '正在初始化' : 從 'double' 轉換為 'float'，是由較大的類型轉換為較小的類型，可能導致資料遺失
@@ -21,4 +21,4 @@
 
 建置成功。
 
-經過時間 00:00:01.23
+經過時間 00:00:04.73
