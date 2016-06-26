@@ -2,15 +2,28 @@
 #include <windows.h> 
 #include <wingdi.h> 
 #include<time.h>
-
 #include <stdlib.h>
 #include <stdio.h>
-
 #include <GL/glew.h>
 #include <GL/glut.h>
 
+
 #define DEFAULT_SHADER 0
 #define MY_SHADER 1
+#define STEP 1
+// Maximum data buffers we will need.
+#define NUM_BUFFERS 5
+
+// Maximum emissions we will need.
+#define NUM_SOURCES 5
+
+// These index the buffers and sources.
+#define SOURCE  0
+#define SOURCE1 1
+#define SOURCE2 2
+#define SOURCE3 3
+#define SOURCE4 4
+
 
 //Directional Light
 float light_amb[4] = { 1.0, 1.0, 1.0, 1 };
@@ -64,20 +77,14 @@ unsigned char *image6;
 unsigned char *image7;
 unsigned int TextureID[8];
 
-//dice
-int roll = 0;
-int dice_x = 0;
-int dice_y = 0;
+/*-------scene-------*/
+int gameTime = 0;
+float grassTextureOffset = 0;
+float fog_color[] = { 0.15, 0.15, 0.15, 0.50 };
 
-int old_rot_x = 0;                              //剛按下滑鼠時的視窗座標 
-int old_rot_y = 0;
-
-int rot_x = 0;                                 //拖曳後的相對座標，用這決定要旋轉幾度 
-int rot_y = 0;
-
-int record_x = 0;                              //紀錄上一次旋轉的角度 
-int record_y = 0;
-
+/*-------move-------*/
+float eyeX = 0.0;
+float eyeY = 10.0;
 
 unsigned char *LoadBitmapFile(char *fileName, BITMAPINFO *bitmapInfo)
 {
@@ -120,7 +127,7 @@ unsigned char *LoadBitmapFile(char *fileName, BITMAPINFO *bitmapInfo)
 
 void texture(void)
 {
-	/*
+	
 	int width;
 	int height;
 
@@ -128,19 +135,20 @@ void texture(void)
 	BITMAPINFO bmpinfo;            //用來存放HEADER資訊 
 	glEnable(GL_TEXTURE_2D);
 	glGenTextures(8, TextureID);
-	//wood
-	image0 = LoadBitmapFile("wood.bmp", &bmpinfo);
+	//grass
+	image0 = LoadBitmapFile("grass.bmp", &bmpinfo);
 	width = bmpinfo.bmiHeader.biWidth;
 	height = bmpinfo.bmiHeader.biHeight;
 	glPixelStorei(GL_UNPACK_ALIGNMENT, 4);
 	glBindTexture(GL_TEXTURE_2D, TextureID[0]);
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP);
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
 	glTexImage2D(GL_TEXTURE_2D, 0, 3, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, image0);
-	//dice1
-	image1 = LoadBitmapFile("dice1.bmp", &bmpinfo);
+	
+	//sky
+	image1 = LoadBitmapFile("sky.bmp", &bmpinfo);
 	width = bmpinfo.bmiHeader.biWidth;
 	height = bmpinfo.bmiHeader.biHeight;
 	glPixelStorei(GL_UNPACK_ALIGNMENT, 4);
@@ -150,6 +158,7 @@ void texture(void)
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
 	glTexImage2D(GL_TEXTURE_2D, 0, 3, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, image1);
+	/*
 	//dice2
 	image2 = LoadBitmapFile("dice2.bmp", &bmpinfo);
 	width = bmpinfo.bmiHeader.biWidth;
@@ -273,25 +282,54 @@ void Draw_UnitDice()
 	}
 }
 
-void AddShineness()
-{
-	if (shininess < 256.0f){
-		shininess *= 2.0f;
-	}
+void draw_sence(){
+	glEnable(GL_COLOR_MATERIAL);
+	glColorMaterial(GL_FRONT, GL_AMBIENT_AND_DIFFUSE);
+	glMatrixMode(GL_TEXTURE);
+	glLoadIdentity();
+	glMatrixMode(GL_MODELVIEW);
+	glEnable(GL_TEXTURE_2D);
+
+	glTexEnvf(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_MODULATE);
+	glBindTexture(GL_TEXTURE_2D, TextureID[0]);
+	glMatrixMode(GL_TEXTURE);
+	glLoadIdentity();
+	glMatrixMode(GL_MODELVIEW);
+	
+	glNormal3f(0.0, 1.0, 0.0);		//草地
+	glColor3f(1.0, 1.0, 1.0);      
+	glBegin(GL_POLYGON);
+	glTexCoord2f(0.0, 0.0 + grassTextureOffset);
+	glVertex3f(500.0, 0.0, 100.0);
+	glTexCoord2f(0.0, 20.0 + grassTextureOffset);
+	glVertex3f(500.0, 0.0, -500.0);
+	glTexCoord2f(20.0, 20.0 + grassTextureOffset);
+	glVertex3f(-500.0, 0.0, -500.0);
+	glTexCoord2f(20.0, 0.0 + grassTextureOffset);
+	glVertex3f(-500.0, 0.0, 100.0);
+	glEnd();
+
+	glTexEnvf(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_MODULATE);
+	glBindTexture(GL_TEXTURE_2D, TextureID[1]);
+	glMatrixMode(GL_TEXTURE);
+	glLoadIdentity();
+	glMatrixMode(GL_MODELVIEW);
+
+	glColor3f(1.0, 1.0, 1.0);		//天空
+	glBegin(GL_POLYGON);
+	glTexCoord2f(0.0, 0.0);
+	glVertex3f(eyeX + 230, -20.0 + eyeY, -500.0);
+	glTexCoord2f(0.0, 1.0);
+	glVertex3f(eyeX + 230, 250.0 + eyeY, -500.0);
+	glTexCoord2f(1.0, 1.0);
+	glVertex3f(eyeX - 230, 250.0 + eyeY, -500.0);
+	glTexCoord2f(1.0, 0.0);
+	glVertex3f(eyeX - 230, -20.0 + eyeY, -500.0);
+	glEnd();
+		
 }
 
-void SubShineness()
-{
-	if (shininess > 1.0f){
-		shininess /= 2.0f;
-	}
-}
 
-void ShaderSwitch()
-{
-	if (shader_effect == DEFAULT_SHADER) shader_effect = MY_SHADER;
-	else shader_effect = DEFAULT_SHADER;
-}
 
 void Light()
 {
@@ -316,6 +354,15 @@ void Init()
 {
 	texture();
 	Light();
+	
+	/*----Set up fog conditions ---*/
+	glEnable(GL_FOG);                /*enable fog fade */
+	glFogi(GL_FOG_MODE, GL_LINEAR);  /*fog factor=GL_LINEAR,GL_EXP,or GL_EXP2*/
+	glFogf(GL_FOG_DENSITY, 0.25);    /*fog opacity(density)= 0.25*/
+	glFogf(GL_FOG_START, 100.0);       /*Setup two ends for GL_LINEAR*/
+	glFogf(GL_FOG_END, 800.0);
+	glFogfv(GL_FOG_COLOR, fog_color);/*set the fog color */
+	
 }
 
 void DrawAxis()
@@ -354,7 +401,7 @@ void Display()
 	glEnable(GL_DEPTH_TEST);
 
 	glClear(GL_DEPTH_BUFFER_BIT | GL_COLOR_BUFFER_BIT);
-	glClearColor(0, 0, 0, 1);
+	glClearColor(0.15, 0.15, 0.15, 1);
 	//projection
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
@@ -363,10 +410,13 @@ void Display()
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
 
-	gluLookAt(20.0, 20.0, 30.0, 6.0, 10.0, 2.0, 0.0, 1.0, 0.0);
+	gluLookAt(eyeX, eyeY, 40.0, eyeX, eyeY, 0.0, 0.0, 1.0, 0.0);
 
 
-	DrawAxis();
+//	DrawAxis();
+
+
+
 
 	
 	glEnable(GL_LIGHTING);//open lighting
@@ -378,7 +428,9 @@ void Display()
 	glMaterialfv(GL_FRONT, GL_DIFFUSE, material_dif);
 	glMaterialfv(GL_FRONT, GL_SPECULAR, material_spe0);
 
+	draw_sence();
 
+	/*
 	//畫箱子
 	glPushMatrix();
 	glTranslated(-15, 0, -20);
@@ -404,100 +456,56 @@ void Display()
 	glRotated(dice_x, 0, 1, 0);
 	Draw_UnitDice();
 	glPopMatrix();
-
-	glDisable(GL_LIGHT0);//close light0
-	glDisable(GL_LIGHTING);//close lighting
+	*/
+//	glDisable(GL_LIGHT0);//close light0
+//	glDisable(GL_LIGHTING);//close lighting
 
 	glutSwapBuffers();
 }
 
 
-void Mouse(int button, int state, int x, int y)
-{
-	if (state)
-	{
-		record_x += x - old_rot_x;
-		record_y += y - old_rot_y;
-
-		rot_x = 0;   //沒有歸零會有不理想的結果 
-		rot_y = 0;
-	}
-	else
-	{
-		old_rot_x = x;
-		old_rot_y = y;
-	}
-	glFinish();
-}
-
-void Motion(int x, int y)
-{
-	rot_x = x - old_rot_x;
-	rot_y = y - old_rot_y;
-	glFinish();
-	dice_y = (float)rot_y + (float)record_y;
-	dice_x = (float)rot_x + (float)record_x;
-	glutPostRedisplay();
-}
-
 void KeyboardDown(unsigned char c, int x, int y)
 {
-	if (c == 's') ShaderSwitch();
-	if (c == 'a') AddShineness();
-	if (c == 'd') SubShineness();
-	if (c == 'o'){ dice_x = dice_y = 0; }
-	if (c == 'r'){
-		if (roll){
-			roll = 0; int n = time(NULL) % 6;
-			switch (n){
-			case 0:
-				dice_x = 0; dice_y = 0;
-				break;
-			case 1:
-				dice_x = 90; dice_y = 0;
-				break;
-			case 2:
-				dice_x = -90; dice_y = 0;
-				break;
-			case 3:
-				dice_x = 180; dice_y = 0;
-				break;
-			case 4:
-				dice_x = 0; dice_y = 90;
-				break;
-			case 5:
-				dice_x = 0; dice_y = -90;
-				break;
-			}
-		}
-		else roll = 1;
-	}
-	if (c == 'l') {
-		if (light_color) {
-			light_color = 0;
-			glLightfv(GL_LIGHT1, GL_DIFFUSE, lit2_diffuse);
-			glLightfv(GL_LIGHT1, GL_SPECULAR, lit2_specular);
-		}
-		else {
-			light_color = 1;
-			glLightfv(GL_LIGHT1, GL_DIFFUSE, lit3_diffuse);
-			glLightfv(GL_LIGHT1, GL_SPECULAR, lit3_specular);
-		}
-	}
+
 	glFinish();
 	glutPostRedisplay();
 }
 
 void KeyboardUp(unsigned char c, int x, int y)
 {
+	
 	glFinish();
+}
+void my_quit(unsigned char key, int ix, int iy)
+{
+	if (key == 'Q' || key == 'q') exit(0);
+
+
+	else if (key == '4'){//鏡頭向左
+		eyeX -= STEP;        /* move right */
+	}
+	else if (key == '6'){//鏡頭向右
+		eyeX += STEP;       /* move left */
+	}		
+	glFinish();
+	glutPostRedisplay();
 }
 
 void Timer(int c)
-{
-	if (roll){
-		dice_x += (time(NULL));
-		dice_y += (time(NULL));
+{	
+	gameTime++;
+	printf("%d\n", gameTime);
+	if ((gameTime / 5) % 2 == 0){
+		eyeY += 0.5;
+	}
+	else if ((gameTime / 5) % 2 == 1){
+		eyeY -= 0.5;
+	}
+	if (grassTextureOffset < 1){
+		grassTextureOffset += 0.25;
+	}
+	else{
+		grassTextureOffset = 0.25;
 	}
 	glutPostRedisplay();
 	glutTimerFunc(50, Timer, 0);
@@ -510,12 +518,11 @@ int main(int argc, char** argv)
 	glutInit(&argc, argv);
 	glutInitDisplayMode(GLUT_RGB | GLUT_DEPTH | GLUT_DOUBLE);
 	glutInitWindowSize(800, 800);
-	glutCreateWindow("GLSL Tutorial");//all opengl api 在此後才有作用
+	glutCreateWindow("Zombie");//all opengl api 在此後才有作用
 	glutDisplayFunc(Display);
-	glutKeyboardFunc(KeyboardDown);
-	glutKeyboardUpFunc(KeyboardUp);
-	glutMotionFunc(Motion);
-	glutMouseFunc(Mouse);
+	glutKeyboardFunc(my_quit);
+//	glutKeyboardFunc(KeyboardDown);
+//	glutKeyboardUpFunc(KeyboardUp);
 	glutTimerFunc(50, Timer, 0);
 	/**/
 	//glewInit();
