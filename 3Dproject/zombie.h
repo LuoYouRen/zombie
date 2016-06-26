@@ -7,6 +7,11 @@
 /*---- the axes of billboard ----*/
 float  a[3], b[3];
 float    mtx[16];     /* the modelview matrix */
+class Zombie{
+	public float position[3];
+
+};
+
 void compute_ab_axes(void)
 {
 	float  w0, w2;
