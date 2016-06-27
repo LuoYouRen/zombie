@@ -1,33 +1,35 @@
-﻿已經開始建置於 2016/6/27 上午 06:17:56。
-     1>節點 2 (Build 目標) 上的專案 "C:\Users\Administrator\Desktop\3D\專案\3Dproject\3Dproject\3Dproject.vcxproj"。
+﻿已經開始建置於 2016/6/27 下午 04:56:40。
+     1>節點 2 (Build 目標) 上的專案 "C:\Users\Administrator\Documents\GitHub\zombie\3Dproject\3Dproject.vcxproj"。
      1>ClCompile:
-         D:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Source.cpp
+         D:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Source.cpp zombie.cpp
+         zombie.cpp
          Source.cpp
-     1>c:\users\administrator\desktop\3d\專案\3dproject\3dproject\zombie.h(45): warning C4305: '正在初始化' : 從 'double' 轉換為 'float'，是由較大的類型轉換為較小的類型，可能導致資料遺失
-     1>c:\users\administrator\desktop\3d\專案\3dproject\3dproject\zombie.h(46): warning C4305: '正在初始化' : 從 'double' 轉換為 'float'，是由較大的類型轉換為較小的類型，可能導致資料遺失
-     1>c:\users\administrator\desktop\3d\專案\3dproject\3dproject\zombie.h(47): warning C4305: '正在初始化' : 從 'double' 轉換為 'float'，是由較大的類型轉換為較小的類型，可能導致資料遺失
-     1>c:\users\administrator\desktop\3d\專案\3dproject\3dproject\zombie.h(294): warning C4305: '引數' : 從 'double' 轉換為 'GLfloat'，是由較大的類型轉換為較小的類型，可能導致資料遺失
-     1>c:\users\administrator\desktop\3d\專案\3dproject\3dproject\zombie.h(302): warning C4305: '引數' : 從 'double' 轉換為 'GLfloat'，是由較大的類型轉換為較小的類型，可能導致資料遺失
-     1>c:\users\administrator\desktop\3d\專案\3dproject\3dproject\zombie.h(339): warning C4244: '=' : 將 'double' 轉換為 'float'，由於類型不同，可能導致資料遺失
-     1>c:\users\administrator\desktop\3d\專案\3dproject\3dproject\source.cpp(25): warning C4305: '正在初始化' : 從 'double' 轉換為 'float'，是由較大的類型轉換為較小的類型，可能導致資料遺失
-     1>c:\users\administrator\desktop\3d\專案\3dproject\3dproject\source.cpp(43): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+     1>c:\users\administrator\documents\github\zombie\3dproject\zombie.h(45): warning C4305: '正在初始化' : 從 'double' 轉換為 'float'，是由較大的類型轉換為較小的類型，可能導致資料遺失
+     1>c:\users\administrator\documents\github\zombie\3dproject\zombie.h(46): warning C4305: '正在初始化' : 從 'double' 轉換為 'float'，是由較大的類型轉換為較小的類型，可能導致資料遺失
+     1>c:\users\administrator\documents\github\zombie\3dproject\zombie.h(47): warning C4305: '正在初始化' : 從 'double' 轉換為 'float'，是由較大的類型轉換為較小的類型，可能導致資料遺失
+     1>c:\users\administrator\documents\github\zombie\3dproject\zombie.h(294): warning C4305: '引數' : 從 'double' 轉換為 'GLfloat'，是由較大的類型轉換為較小的類型，可能導致資料遺失
+     1>c:\users\administrator\documents\github\zombie\3dproject\zombie.h(302): warning C4305: '引數' : 從 'double' 轉換為 'GLfloat'，是由較大的類型轉換為較小的類型，可能導致資料遺失
+     1>c:\users\administrator\documents\github\zombie\3dproject\zombie.h(339): warning C4244: '=' : 將 'double' 轉換為 'float'，由於類型不同，可能導致資料遺失
+     1>c:\users\administrator\documents\github\zombie\3dproject\source.cpp(25): warning C4305: '正在初始化' : 從 'double' 轉換為 'float'，是由較大的類型轉換為較小的類型，可能導致資料遺失
+     1>c:\users\administrator\documents\github\zombie\3dproject\source.cpp(43): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
                  d:\program files (x86)\microsoft visual studio 12.0\vc\include\stdio.h(211) : 請參閱 'fopen' 的宣告
-     1>c:\users\administrator\desktop\3d\專案\3dproject\3dproject\source.cpp(244): warning C4244: '引數' : 將 'double' 轉換為 'GLfloat'，由於類型不同，可能導致資料遺失
-     1>c:\users\administrator\desktop\3d\專案\3dproject\3dproject\source.cpp(246): warning C4244: '引數' : 將 'double' 轉換為 'GLfloat'，由於類型不同，可能導致資料遺失
-     1>c:\users\administrator\desktop\3d\專案\3dproject\3dproject\source.cpp(248): warning C4244: '引數' : 將 'double' 轉換為 'GLfloat'，由於類型不同，可能導致資料遺失
-     1>c:\users\administrator\desktop\3d\專案\3dproject\3dproject\source.cpp(250): warning C4244: '引數' : 將 'double' 轉換為 'GLfloat'，由於類型不同，可能導致資料遺失
-     1>c:\users\administrator\desktop\3d\專案\3dproject\3dproject\source.cpp(263): warning C4244: '引數' : 將 'double' 轉換為 'GLfloat'，由於類型不同，可能導致資料遺失
-     1>c:\users\administrator\desktop\3d\專案\3dproject\3dproject\source.cpp(265): warning C4244: '引數' : 將 'double' 轉換為 'GLfloat'，由於類型不同，可能導致資料遺失
-     1>c:\users\administrator\desktop\3d\專案\3dproject\3dproject\source.cpp(267): warning C4244: '引數' : 將 'double' 轉換為 'GLfloat'，由於類型不同，可能導致資料遺失
-     1>c:\users\administrator\desktop\3d\專案\3dproject\3dproject\source.cpp(269): warning C4244: '引數' : 將 'double' 轉換為 'GLfloat'，由於類型不同，可能導致資料遺失
-     1>c:\users\administrator\desktop\3d\專案\3dproject\3dproject\source.cpp(346): warning C4305: '引數' : 從 'double' 轉換為 'GLclampf'，是由較大的類型轉換為較小的類型，可能導致資料遺失
-     1>c:\users\administrator\desktop\3d\專案\3dproject\3dproject\source.cpp(369): warning C4305: '引數' : 從 'double' 轉換為 'GLfloat'，是由較大的類型轉換為較小的類型，可能導致資料遺失
+     1>c:\users\administrator\documents\github\zombie\3dproject\source.cpp(244): warning C4244: '引數' : 將 'double' 轉換為 'GLfloat'，由於類型不同，可能導致資料遺失
+     1>c:\users\administrator\documents\github\zombie\3dproject\source.cpp(246): warning C4244: '引數' : 將 'double' 轉換為 'GLfloat'，由於類型不同，可能導致資料遺失
+     1>c:\users\administrator\documents\github\zombie\3dproject\source.cpp(248): warning C4244: '引數' : 將 'double' 轉換為 'GLfloat'，由於類型不同，可能導致資料遺失
+     1>c:\users\administrator\documents\github\zombie\3dproject\source.cpp(250): warning C4244: '引數' : 將 'double' 轉換為 'GLfloat'，由於類型不同，可能導致資料遺失
+     1>c:\users\administrator\documents\github\zombie\3dproject\source.cpp(263): warning C4244: '引數' : 將 'double' 轉換為 'GLfloat'，由於類型不同，可能導致資料遺失
+     1>c:\users\administrator\documents\github\zombie\3dproject\source.cpp(265): warning C4244: '引數' : 將 'double' 轉換為 'GLfloat'，由於類型不同，可能導致資料遺失
+     1>c:\users\administrator\documents\github\zombie\3dproject\source.cpp(267): warning C4244: '引數' : 將 'double' 轉換為 'GLfloat'，由於類型不同，可能導致資料遺失
+     1>c:\users\administrator\documents\github\zombie\3dproject\source.cpp(269): warning C4244: '引數' : 將 'double' 轉換為 'GLfloat'，由於類型不同，可能導致資料遺失
+     1>c:\users\administrator\documents\github\zombie\3dproject\source.cpp(346): warning C4305: '引數' : 從 'double' 轉換為 'GLclampf'，是由較大的類型轉換為較小的類型，可能導致資料遺失
+     1>c:\users\administrator\documents\github\zombie\3dproject\source.cpp(369): warning C4305: '引數' : 從 'double' 轉換為 'GLfloat'，是由較大的類型轉換為較小的類型，可能導致資料遺失
+         正在產生程式碼...
        Link:
-         D:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Administrator\Desktop\3D\專案\3Dproject\Debug\3Dproject.exe" /INCREMENTAL /NOLOGO opencv_ts300d.lib opencv_world300d.lib opencv_ts300.lib opencv_world300.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Administrator\Desktop\3D\專案\3Dproject\Debug\3Dproject.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Administrator\Desktop\3D\專案\3Dproject\Debug\3Dproject.lib" /MACHINE:X86 Debug\Source.obj
+         D:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Administrator\Documents\GitHub\zombie\Debug\3Dproject.exe" /INCREMENTAL /NOLOGO opencv_ts300d.lib opencv_world300d.lib opencv_ts300.lib opencv_world300.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Administrator\Documents\GitHub\zombie\Debug\3Dproject.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Administrator\Documents\GitHub\zombie\Debug\3Dproject.lib" /MACHINE:X86 Debug\Source.obj
          Debug\zombie.obj
-         3Dproject.vcxproj -> C:\Users\Administrator\Desktop\3D\專案\3Dproject\Debug\3Dproject.exe
-     1>專案 "C:\Users\Administrator\Desktop\3D\專案\3Dproject\3Dproject\3Dproject.vcxproj" (Build 目標) 建置完成。
+         3Dproject.vcxproj -> C:\Users\Administrator\Documents\GitHub\zombie\Debug\3Dproject.exe
+     1>專案 "C:\Users\Administrator\Documents\GitHub\zombie\3Dproject\3Dproject.vcxproj" (Build 目標) 建置完成。
 
 建置成功。
 
-經過時間 00:00:01.86
+經過時間 00:00:02.74
